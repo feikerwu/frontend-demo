@@ -6,6 +6,7 @@ function component() {
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     console.log('xxx')
     console.log('niho')
+    console.log('tets')
     return element;
 }
 
