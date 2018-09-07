@@ -14,13 +14,15 @@ const { args } = program.parse(process.argv)
 const demoName = args[0]
 
 const demoPath = path.resolve(process.cwd(), 'src', demoName)
-const demoConfig = require(path.resolve(demoPath, 'config'))
+
+const demoConfig = require(path.resolve(demoPath, 'config.template')) || {}
 
 const config = merge(devConfig, demoConfig, {
     entry: {
         app: path.resolve(demoPath, 'index.js')
     }
 })
+
 
 const app = express()
 const compiler = webpack(config)
